@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from core.views import DemandaViewSet
+from rest_framework.authtoken import views
 
 router = routers.DefaultRouter()
 router.register('demandas', DemandaViewSet)
@@ -24,5 +25,6 @@ router.register('demandas', DemandaViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    path('api-token-auth/', views.obtain_auth_token),
 ]
