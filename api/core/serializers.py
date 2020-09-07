@@ -29,3 +29,22 @@ class DemandaSerializer(serializers.ModelSerializer):
             'uf',
             'cep',
         ]
+
+
+class DemandaCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Demanda
+        fields = (
+            "id",
+            "descricao_peca",
+            "informacao_contato",
+            "status_finalizacao",
+            'logradouro',
+            'numero',
+            'complemento',
+            'bairro',
+            'cidade',
+            'cep',
+        )
+        extra_kwargs = {"anunciante": {"write-only": True}}
+
