@@ -1,6 +1,6 @@
 from .models import Demanda
 from django.contrib.auth.models import User
-from rest_framework import serializer
+from rest_framework import serializers
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
@@ -21,10 +21,11 @@ class DemandaSerializer(serializers.ModelSerializer):
             'informacao_contato',
             'status_finalizacao',
             'anunciante',
-            'rua',
+            'logradouro',
             'numero',
             'complemento',
             'bairro',
             'cidade',
+            'uf',
             'cep',
         ]
