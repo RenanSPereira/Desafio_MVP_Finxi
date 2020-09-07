@@ -6,14 +6,10 @@ from django.utils import timezone
 
 
 class Demanda(models.Model):
-    STATUS = (
-        ('aberta', 'Aberta'),
-        ('fechada', 'Fechada')
-    )
     descricao_peca = models.CharField(max_length=70)
     informacao_contato = models.CharField(max_length=100)
     anunciante = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    status_finalizacao = models.CharField(max_length=10, choices=STATUS, default='aberta')
+    status_finalizacao = models.BooleanField(default=False)
     data_cadastro = models.DateTimeField(auto_now_add=True)
 
     logradouro = models.CharField(max_length=100, null=False, blank=False)
