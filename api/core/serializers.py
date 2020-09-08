@@ -44,7 +44,7 @@ class DemandaCreateSerializer(serializers.ModelSerializer):
             'complemento',
             'bairro',
             'cidade',
+            'uf',
             'cep',
         )
         extra_kwargs = {"anunciante": {"write-only": True}}
-
