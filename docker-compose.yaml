@@ -1,0 +1,12 @@
+
+version: '3'
+
+services:
+  web:
+    build: .
+    command: sh -c "python api/manage.py makemigrations && python api/manage.py migrate && python api/manage.py runserver 0.0.0.0:8000"
+    container_name: api_finxi
+    volumes:
+      - .:/webapps
+    ports:
+      - "8000:8000"
